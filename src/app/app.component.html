@@ -1,21 +1,97 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+
+<div class="container mt-lg-5">
+  <div class="jumbotron shadow">
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="profile-photo">
+          <img
+            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+            alt="profile photo">
+        </div>
+        <div class="profile-info">
+          <h1 class="profile-title">Aishwarya A</h1>
+          <h2 class="profile-position">VS123445</h2>
+        </div>
+      </div>
+      <div class="col-sm-8">
+        <div class="row">
+          <div class="col-xl-12 col-lg-12">
+            <div class="card shadow mb-4">
+              <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">Badges Earned</h6>
+              </div>
+              <div class="card-body">
+                <img class="badges" src="../assets/participation.png" alt="badge">
+                <img class="badges" src="../assets/gold.png" alt="badge">
+                <img class="badges" src="../assets/winner.png" alt="badge">
+                <img class="badges" src="../assets/outstanding.png" alt="badge">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="card border-left-success shadow h-100 py-2">
+              <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                  <div class="col-auto mr-lg-5">
+                    <i class="fas fa-coins fa-2x text-gold-300"></i>
+                  </div>
+                  <div class="col">
+                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Points Earned</div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">400</div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="card border-left-primary shadow h-100 py-2">
+              <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                  <div class="col-auto  mr-lg-5">
+                    <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                  </div>
+                  <div class="col">
+                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Points Issued</div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">600</div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-4">
+          <div class="col-xl-12 col-lg-12">
+            <div class="card shadow mb-4">
+              <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-secondary">Visitor Activity</h6>
+              </div>
+              <div class="card-body">
+                <ngx-charts-heat-map [view]="[650, 230]" [scheme]="colorScheme" animations="true" [results]="multi"
+                  [legend]="false" [legendPosition]="left" [gradient]="false" [innerPadding]="5" [xAxis]=true
+                  [yAxis]=true [showXAxisLabel]="true" [showYAxisLabel]="false" [xAxisLabel]="xAxisLabel"
+                  [yAxisLabel]="yAxisLabel" [trimXAxisTicks]="false" (select)="onSelect($event)">
+                  <ng-template #tooltipTemplate let-model="model">
+                    <div class="tt">
+                      time spent in {{ model.series }}
+                      {{ model.name }} is
+                      {{ model.value }}
+                    </div>
+                  </ng-template>
+                </ngx-charts-heat-map>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+
 
 <router-outlet></router-outlet>

@@ -1,0 +1,93 @@
+
+.jumbotron {
+    background-color: white;
+}
+
+
+.profile-photo {
+    margin-right: 8%;
+    margin-bottom: 10px;
+}
+
+.profile-photo img {
+    width: 299px;
+    height: 340px;
+    display: block;
+    border-radius: 1rem;
+}
+
+.profile-info {
+    color: #3d4451;
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+    margin-top: 25px;
+    /* border-bottom: 1px solid #dedede; */
+}
+
+
+.profile-title {
+    font-size: 36px;
+    line-height: 1.1;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+.profile-position {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.1;
+    margin-bottom: 0;
+    color: #848484;
+}
+
+
+@media (min-width: 576px)
+{
+    .jumbotron {
+        padding: 2rem 2rem;
+    }
+}
+.text-xs {
+    font-size: .7rem;
+}
+.text-success {
+    color: #1cc88a!important;
+}
+.text-gray-300 {
+    color: #dddfeb!important;
+}
+
+.text-gold-300 {
+    color: #d4af37!important;
+}
+.border-left-primary {
+    border-left: .25rem solid #4e73df!important;
+}
+.border-left-success {
+    border-left: .25rem solid #1cc88a!important;
+}
+
+.card-header:first-child {
+    border-radius: calc(.35rem - 1px) calc(.35rem - 1px) 0 0;
+}
+
+.text-primary {
+    color: #4e73df!important;
+}
+
+.font-weight-bold {
+    font-weight: 700!important;
+}
+.card-header {
+    padding: .75rem 1.25rem;
+    margin-bottom: 0;
+    background-color:#f8f9fcd1;
+    border-bottom: 1px solid #e3e6f0;
+}
+.badges {
+    width: 6rem;
+    height: 5rem;
+}
+
+.shadow {
+    box-shadow: 0 .15rem 1.75rem 0 rgba(58,59,69,.15)!important;
+}
