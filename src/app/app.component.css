@@ -9,6 +9,16 @@
     margin-bottom: 10px;
 }
 
+.legend{
+	position: relative;
+    bottom: -1px;
+    display: flex;
+	margin: 0 5px;
+	width: 100%;
+	margin-right: 30px;
+    list-style-type: none;
+}
+
 .profile-photo img {
     width: 100px;
     height: 100px;
@@ -99,6 +109,9 @@
     border-bottom: 1px solid #e3e6f0;
 }
 
+ul#menu li {
+    display:inline;
+}
 .img-with-text {
     width: 75PX;
     margin-right: 2rem;
