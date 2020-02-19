@@ -100,16 +100,16 @@
 }
 
 .img-with-text {
-    width: 55PX;
-    margin-right: 1rem;
-    font-size: 10px;
+    width: 75PX;
+    margin-right: 2rem;
+    font-size: 12px;
 }
 
 .img-with-text img {
     display: block;
-    margin: 0 auto;
-    width: 55px;
-    height: 56px;
+    margin: 1 auto;
+    width: 65px;
+    height: 80px;
 }
 
 .shadow {
