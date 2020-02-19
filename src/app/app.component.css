@@ -100,7 +100,7 @@
 }
 
 .img-with-text {
-    width: 50PX;
+    width: 55PX;
     margin-right: 1rem;
     font-size: 10px;
 }
@@ -108,8 +108,8 @@
 .img-with-text img {
     display: block;
     margin: 0 auto;
-    width: 50px;
-    height: 49px;
+    width: 55px;
+    height: 56px;
 }
 
 .shadow {
@@ -119,20 +119,16 @@
 /* profile not found  css*/
 
 svg {
-    position: absolute;
-    top: 50%;
+    position: relative;
     left: 50%;
-    margin-top: -250px;
     margin-left: -400px;
   }
   .message-box {
     height: 200px;
     width: 380px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: -100px;
-    margin-left: 50px;
+    position: relative;
+    left: 57%;
+    bottom: 17rem;
     color: #000035;
     font-family: Roboto;
     font-weight: 300;

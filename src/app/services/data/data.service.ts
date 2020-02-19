@@ -40,14 +40,13 @@ export class DataService {
    *
    * @param requestParam interface
    */
-  get(requestParam: any): Observable<ServerResponse> {
+  get(requestParam: any): Observable<any> {
     const httpOptions: HttpOptions = {
       headers: requestParam.header ?  this.getHeader(requestParam.header) : this.getHeader(),
       params: requestParam.param
     };
     return this.http.get(this.baseUrl + requestParam.url, httpOptions).pipe(
       mergeMap((data: any) => {
-        console.log(data)
         return observableOf(data);
       }));
   }

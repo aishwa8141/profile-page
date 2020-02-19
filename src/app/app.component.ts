@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from './services/data/data.service';
 import { multi } from './main';
+import { Subscription} from 'rxjs';
+import { interval } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +14,9 @@ export class AppComponent implements OnInit {
   public dataService: DataService;
   public visitorInfo = {};
   public visitorActivity = {};
-  public showMessage = false;
+  public showMessage = true;
+  subscription: Subscription;
+  timer = interval(10000);
 
   multi: any[];
   xAxisLabel = 'Stall';
@@ -33,13 +37,16 @@ export class AppComponent implements OnInit {
 
   constructor(dataService: DataService) {
     this.dataService = dataService;
-    Object.assign(this, { multi })
   }
+
+  ngOnInit() {
+    this.getVisitorInfo()
+    //calling get visitor info for every 10 seconds
+    this.subscription = this.timer.subscribe(val => this.getVisitorInfo());
+  }
+
   onSelect(event) {
     console.log(event);
-  }
-  ngOnInit() {
-    this.getVisitorInfo();
   }
 
   getVisitorInfo() {
@@ -47,14 +54,20 @@ export class AppComponent implements OnInit {
       url: "/1",
     }
     this.dataService.get(requestData).subscribe(response => {
+      console.log("visitor info ", response);
       if (response.responseCode === "SUCCESSFUL") {
-        this.visitorInfo = response
         this.showMessage = false;
+        this.visitorInfo = response;
       } else {
-          this.showMessage = true;
+        this.showMessage = true;
       }
     }, (err => {
       console.log(err)
     }))
+
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }
