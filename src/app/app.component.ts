@@ -12,6 +12,7 @@ export class AppComponent implements OnInit {
   public dataService: DataService;
   public visitorInfo = {};
   public visitorActivity = {};
+  public showMessage = false;
 
   multi: any[];
   xAxisLabel = 'Stall';
@@ -48,6 +49,9 @@ export class AppComponent implements OnInit {
     this.dataService.get(requestData).subscribe(response => {
       if (response.responseCode === "SUCCESSFUL") {
         this.visitorInfo = response
+        this.showMessage = false;
+      } else {
+          this.showMessage = true;
       }
     }, (err => {
       console.log(err)

@@ -10,40 +10,55 @@
 }
 
 .profile-photo img {
-    width: 299px;
-    height: 340px;
+    width: 100px;
+    height: 100px;
     display: block;
-    border-radius: 1rem;
+    box-shadow: 0px 3px 6px #00000029;
+    border: 2px solid #F6C648;
+    border-radius: 24px;
 }
 
 .profile-info {
     color: #3d4451;
     padding-bottom: 25px;
     margin-bottom: 25px;
-    margin-top: 25px;
     /* border-bottom: 1px solid #dedede; */
 }
 
 
+
 .profile-title {
-    font-size: 36px;
-    line-height: 1.1;
-    font-weight: 700;
-    margin-bottom: 5px;
+    text-align: left;
+    letter-spacing: 0;
+    color: #F6C648;
+    font-size: 24px;
+    font-weight: 400;
 }
 .profile-position {
-    font-size: 15px;
-    font-weight: 400;
+    font-size: 14px;
     line-height: 1.1;
     margin-bottom: 0;
+    letter-spacing: 0;
     color: #848484;
 }
 
+.card-background {
+    height: 124px;
+    top: 0;
+    left: 0;
+    background-repeat: repeat;
+    width: 100%;
+    object-fit: cover;
+    background-color: #000035;
+    padding: 18px 41px;
+}
 
 @media (min-width: 576px)
 {
     .jumbotron {
-        padding: 2rem 2rem;
+    padding: 0px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #D1D1D1;
     }
 }
 .text-xs {
@@ -83,11 +98,85 @@
     background-color:#f8f9fcd1;
     border-bottom: 1px solid #e3e6f0;
 }
-.badges {
-    width: 6rem;
-    height: 5rem;
+
+.img-with-text {
+    width: 50PX;
+    margin-right: 1rem;
+    font-size: 10px;
+}
+
+.img-with-text img {
+    display: block;
+    margin: 0 auto;
+    width: 50px;
+    height: 49px;
 }
 
 .shadow {
     box-shadow: 0 .15rem 1.75rem 0 rgba(58,59,69,.15)!important;
 }
+
+/* profile not found  css*/
+
+svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -250px;
+    margin-left: -400px;
+  }
+  .message-box {
+    height: 200px;
+    width: 380px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: 50px;
+    color: #000035;
+    font-family: Roboto;
+    font-weight: 300;
+  }
+  .message-box h1 {
+    font-size: 60px;
+    line-height: 46px;
+    margin-bottom: 40px;
+  }
+  
+  #Polygon-1 , #Polygon-2 , #Polygon-3 , #Polygon-4 , #Polygon-4, #Polygon-5 {
+    animation: float 1s infinite ease-in-out alternate;
+  }
+  #Polygon-2 {
+    animation-delay: .2s; 
+  }
+  #Polygon-3 {
+    animation-delay: .4s; 
+  }
+  #Polygon-4 {
+    animation-delay: .6s; 
+  }
+  #Polygon-5 {
+    animation-delay: .8s; 
+  }
+  
+  @keyframes float {
+      100% {
+      transform: translateY(20px);
+    }
+  }
+  @media (max-width: 450px) {
+    svg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -250px;
+      margin-left: -190px;
+    }
+    .message-box {
+      top: 50%;
+      left: 50%;
+      margin-top: -100px;
+      margin-left: -190px;
+      text-align: center;
+    }
+  }

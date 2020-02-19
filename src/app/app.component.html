@@ -1,94 +1,109 @@
-<!--The content below is only a placeholder and can be replaced.-->
 
 <div class="container mt-lg-5">
-  <div class="jumbotron shadow">
-    <div class="row">
-      <div class="col-sm-4">
-        <div class="profile-photo">
-          <img
-            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
-            alt="profile photo">
+  <div class="jumbotron" *ngIf="!showMessage">
+    <div class="card-background">
+      <div class="row pb-2">
+        <div class="col-sm-6">
         </div>
-        <div class="profile-info">
-          <h1 class="profile-title">Aishwarya A</h1>
-          <h2 class="profile-position">VS123445</h2>
+        <div class="col-sm-6">
+          <img src="../assets/logo.png" style="float: right;">
         </div>
       </div>
-      <div class="col-sm-8">
-        <div class="row">
-          <div class="col-xl-12 col-lg-12">
-            <div class="card shadow mb-4">
-              <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">Badges Earned</h6>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="row">
+            <div class="col-sm-3">
+              <div class="profile-photo">
+                <img src={{visitorInfo?.photo}} alt="profile photo">
               </div>
-              <div class="card-body">
-                <img class="badges" src="../assets/participation.png" alt="badge">
-                <img class="badges" src="../assets/gold.png" alt="badge">
-                <img class="badges" src="../assets/winner.png" alt="badge">
-                <img class="badges" src="../assets/outstanding.png" alt="badge">
+            </div>
+            <div class="col-sm-7 pl-0">
+              <div class="profile-info">
+                <h1 class="profile-title">{{visitorInfo?.name}}</h1>
+                <h2 class="profile-position">{{visitorInfo?.code}}</h2>
               </div>
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-sm-6">
-            <div class="card border-left-success shadow h-100 py-2">
-              <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                  <div class="col-auto mr-lg-5">
-                    <i class="fas fa-coins fa-2x text-gold-300"></i>
-                  </div>
-                  <div class="col">
-                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Points Earned</div>
-                    <div class="h5 mb-0 font-weight-bold text-gray-800">400</div>
-                  </div>
-
-                </div>
-              </div>
+        <div class="col-sm-6 d-inline-flex justify-content-end">
+          <div class="row no-gutters pt-3 pr-3">
+            <div class="col-auto mr-2">
+              <img src="../assets/coinsEarned.png">
+            </div>
+            <div class="col">
+              <div class="text-xs text-gray-300 text-uppercase mb-1">Points Earned</div>
+              <div class="text-xs mb-0 text-gray-300">{{visitorInfo?.pointsEarned}}</div>
+            </div> 
+          </div>
+          <div class="row no-gutters pt-3">
+            <div class="col-auto mr-2">
+              <img src="../assets/XMLID_21_-1.png">
+            </div>
+            <div class="col">
+              <div class="text-xs text-gray-300 text-uppercase mb-1">Points Issued</div>
+              <div class="text-xs mb-0 text-gray-300">{{visitorInfo?.pointsISSUED}}</div>
             </div>
           </div>
-          <div class="col-sm-6">
-            <div class="card border-left-primary shadow h-100 py-2">
-              <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                  <div class="col-auto  mr-lg-5">
-                    <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                  </div>
-                  <div class="col">
-                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Points Issued</div>
-                    <div class="h5 mb-0 font-weight-bold text-gray-800">600</div>
-                  </div>
 
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
-
-        <div class="row mt-4">
-          <div class="col-xl-12 col-lg-12">
-            <div class="card shadow mb-4">
-              <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-secondary">Visitor Activity</h6>
-              </div>
-              <div class="card-body">
-                <ngx-charts-heat-map [view]="[650, 230]" [scheme]="colorScheme" animations="true" [results]="multi"
-                  [legend]="false" [legendPosition]="left" [gradient]="false" [innerPadding]="5" [xAxis]=true
-                  [yAxis]=true [showXAxisLabel]="true" [showYAxisLabel]="false" [xAxisLabel]="xAxisLabel"
-                  [yAxisLabel]="yAxisLabel" [trimXAxisTicks]="false" (select)="onSelect($event)">
-                  <ng-template #tooltipTemplate let-model="model">
-                    <div class="tt">
-                      time spent in {{ model.series }}
-                      {{ model.name }} is
-                      {{ model.value }}
-                    </div>
-                  </ng-template>
-                </ngx-charts-heat-map>
-              </div>
+      </div>
+    </div>
+    <div class="row mt-5" style="padding: 18px 41px;">
+      <div class="col-xl-6 col-lg-6">
+        <div class="card shadow mb-4 h-100">
+          <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+            <h6 class="m-0 font-weight-bold text-secondary">BADGES EARNED</h6>
+          </div>
+          <div class="card-body d-flex">
+            <div class="img-with-text" *ngFor="let badge of visitorInfo?.badges">
+              <img class="badges" src="badge?.url" alt="badge">
+              <p class="text-center">{{badge?.name}}</p>
             </div>
           </div>
         </div>
       </div>
+      <div class="col-xl-6 col-lg-6">
+        <div class="card shadow mb-4 h-100">
+          <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+            <h6 class="m-0 font-weight-bold text-secondary">VISITOR'S ACTIVITY</h6>
+          </div>
+          <div class="card-body">
+            <ngx-charts-heat-map [view]="[350, 110]" [scheme]="colorScheme" animations="true" [results]="multi"
+              [legend]="false" [legendPosition]="left" [gradient]="false" [innerPadding]="5" [xAxis]=true [yAxis]=true
+              [showXAxisLabel]="true" [showYAxisLabel]="false" [xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel"
+              [trimXAxisTicks]="false" (select)="onSelect($event)">
+              <ng-template #tooltipTemplate let-model="model">
+                <div class="tt">
+                  time spent in {{ model.series }}
+                  {{ model.name }} is
+                  {{ model.value }}
+                </div>
+              </ng-template>
+            </ngx-charts-heat-map>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" *ngIf="showMessage">
+    <svg width="380px" height="500px" viewBox="0 0 837 1045" version="1.1" xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+      <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <path d="M353,9 L626.664028,170 L626.664028,487 L353,642 L79.3359724,487 L79.3359724,170 L353,9 Z"
+          id="Polygon-1" stroke="#007FB2" stroke-width="6" sketch:type="MSShapeGroup"></path>
+        <path d="M78.5,529 L147,569.186414 L147,648.311216 L78.5,687 L10,648.311216 L10,569.186414 L78.5,529 Z"
+          id="Polygon-2" stroke="#EF4A5B" stroke-width="6" sketch:type="MSShapeGroup"></path>
+        <path d="M773,186 L827,217.538705 L827,279.636651 L773,310 L719,279.636651 L719,217.538705 L773,186 Z"
+          id="Polygon-3" stroke="#795D9C" stroke-width="6" sketch:type="MSShapeGroup"></path>
+        <path d="M639,529 L773,607.846761 L773,763.091627 L639,839 L505,763.091627 L505,607.846761 L639,529 Z"
+          id="Polygon-4" stroke="#F2773F" stroke-width="6" sketch:type="MSShapeGroup"></path>
+        <path d="M281,801 L383,861.025276 L383,979.21169 L281,1037 L179,979.21169 L179,861.025276 L281,801 Z"
+          id="Polygon-5" stroke="#36B455" stroke-width="6" sketch:type="MSShapeGroup"></path>
+      </g>
+    </svg>
+    <div class="message-box">
+      <h2>NO PROFILE FOUND</h2>
     </div>
   </div>
 </div>
